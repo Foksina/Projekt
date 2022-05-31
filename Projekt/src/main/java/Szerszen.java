@@ -1,7 +1,8 @@
 public class Szerszen extends Owad{
-    //public int[] spisSzerszeni;
+    Laka object = new Laka();
+    public int[][] spisSzerszeni = object.spisSzerszeni;
 
-    private Szerszen(){
+    public Szerszen(){
         this.szybkoscPoruszania = 1;
     }
 }
