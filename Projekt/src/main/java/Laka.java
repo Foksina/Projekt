@@ -143,7 +143,7 @@ public class Laka extends JFrame implements Serializable {
             for (int i = 0; i < rozmiarLaki; i++) {
                 spisSzerszeni[i][j] = 0;
             }
-        for (int n = 0; n < a; n++){
+        for (int n = 0; n < b; n++){
             Random random = new Random();
             int x = random.nextInt(rozmiarLaki);
             Random random2 = new Random();
@@ -174,6 +174,27 @@ public class Laka extends JFrame implements Serializable {
         symulacjaRozpoczeta = true;
         }
 
+    // metoda tworzy tablice obiektów typu pszczola
+    public void tablicaPszczol(){
+            Main object = new Main();
+            int a = object.getLiczbaPszczol();
+            Pszczola[] listaPszczol = new Pszczola[a];
+            for(int i =0; i<a; i++){
+                Pszczola pszczola = new Pszczola();
+                listaPszczol[i]=pszczola;
+            }
+    }
+    
+    // metoda tworzy tablice obiektów typu szerszen
+    public void tablicaSzerszeni(){
+        Main object = new Main();
+        int b = object.getLiczbaSzerszeni();
+        Szerszen[] listaSzerszeni = new Szerszen[b];
+        for(int i =0; i<b; i++){
+            Szerszen szerszen = new Szerszen();
+            listaSzerszeni[i]=szerszen;
+        }
+    }
 
 /*  @Override
     public void paint(Graphics g) {
