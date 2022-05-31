@@ -1,8 +1,9 @@
 public class Pszczola extends Owad{
     private int zebranyNektar;
-    //public int[int[]] spisPszczol;
-
-    private Pszczola(){
+    Laka object = new Laka();
+    public int[][] spisPszczol = object.spisPszczol;
+    
+    public Pszczola(){
         this.szybkoscPoruszania = 2;
     }
 
