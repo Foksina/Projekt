@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Laka extends JFrame implements Serializable {
     private static int rozmiarLaki;
-    protected static int spisPszczol[][];
-    protected static int spisSzerszeni[][];
-    protected static int planszaKwiatow[][];
-    protected static int planszaOwadow[][];
+    public static int spisPszczol[][];
+    public static int spisSzerszeni[][];
+    public static int planszaKwiatow[][];
+    public static int planszaOwadow[][];
 
 /*
     private Integer szerokoscOkna = 100*rozmiarLaki;
@@ -71,7 +71,7 @@ public class Laka extends JFrame implements Serializable {
     }
 */
 
-    protected void wypelnijLake() {
+    private void wypelnijLake() {
        //dodawanie lawendy - lawenda w tablicy ma wartosc 1
         for (int k = 0; k < rozmiarLaki; k++){
             Random random = new Random();
@@ -114,7 +114,7 @@ public class Laka extends JFrame implements Serializable {
         symulacjaRozpoczeta = false;
     }
 
-    protected void ustawOwady() {
+    private void ustawOwady() {
         //stworzenie tablicy zer i jedynek, jedynka oznacza pszczołę
         Main object = new Main();
         int a = object.getLiczbaPszczol();
