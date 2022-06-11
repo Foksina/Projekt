@@ -51,5 +51,6 @@ public class Main {
                 sprawdzam = true;
             }
         }
+
     }
 }
