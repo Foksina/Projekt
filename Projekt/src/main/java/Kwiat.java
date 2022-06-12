@@ -14,4 +14,8 @@ public class Kwiat {
     public byte getIloscNektaru() {
         return iloscNektaru;
     }
+    
+    public void setIloscNektaru(byte iloscNektaru) {
+        this.iloscNektaru = iloscNektaru;
+    }
 }
