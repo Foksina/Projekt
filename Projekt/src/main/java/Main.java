@@ -18,7 +18,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main object2 = new Main();
         Laka object = new Laka();
 
         boolean sprawdzam = false;
