@@ -1,14 +1,18 @@
 import java.util.Random;
+import java.util.LinkedList;
 public class Owad {
     private int[] wspolrzedne;
-    protected int liczbaGatunku;  //zmienna, która zlicza ile jest owadow danego gatunku
+
     protected byte szybkoscPoruszania;
     public int pszczolWokol;
     public int szerszeniWokol;
     public int mozliwosci[][];
+    public LinkedList<Owad> listaPszczolWokol = new LinkedList<>();
+    public LinkedList<Owad> listaSzerszeniWokol = new LinkedList<>();
+
 
     protected void ruch (byte szybkoscPoruszania){
-       //tworzenie listy możliwych ruchów
+       //tworzenie tablicy możliwych ruchów
         int k =0;
         for(int i =(-1 * szybkoscPoruszania); i<= szybkoscPoruszania; i++){
             for(int j =(-1 * szybkoscPoruszania); j<= szybkoscPoruszania; j++){
@@ -31,13 +35,18 @@ public class Owad {
     public void sprawdzOtoczenie(){
        pszczolWokol = 0;
        szerszeniWokol =0;
+       listaPszczolWokol.clear();
+       listaSzerszeniWokol.clear();
+
         if((wspolrzedne[0] < (Laka.getRozmiarLaki()-1))) //pole "pod"
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]])){
-            szerszeniWokol = szerszeniWokol +1;
+                szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]]);
             }
         }
 
@@ -45,9 +54,11 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]-1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]-1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]-1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]-1]);
             }
         }
 
@@ -55,18 +66,22 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]-1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]-1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]-1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]-1]);
             }
         }
         if((wspolrzedne[0] > 0 )&&(wspolrzedne[1] > 0)) //pole na ukos po lewej u góry
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]-1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]-1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]-1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]-1]);
             }
         }
 
@@ -74,9 +89,11 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]]);
             }
         }
 
@@ -84,9 +101,11 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]+1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]+1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]+1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]-1][wspolrzedne[1]+1]);
             }
         }
 
@@ -94,9 +113,11 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]+1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]+1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]+1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]+1]);
             }
         }
 
@@ -104,19 +125,13 @@ public class Owad {
         {
             if((Laka.spisPszczol).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]+1])){
                 pszczolWokol = pszczolWokol+1;
+                listaPszczolWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]+1]);
             }
             else if ((Laka.spisSzerszeni).contains(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]+1])){
                 szerszeniWokol = szerszeniWokol +1;
+                listaSzerszeniWokol.add(Laka.planszaOwadow[wspolrzedne[0]+1][wspolrzedne[1]+1]);
             }
         }
-    }
-
-    public int getLiczbaGatunku() {
-        return liczbaGatunku;
-    }
-
-    public void setLiczbaGatunku(int liczbaGatunku) {
-        this.liczbaGatunku = liczbaGatunku;
     }
 
     public int[] getWspolrzedne() {
