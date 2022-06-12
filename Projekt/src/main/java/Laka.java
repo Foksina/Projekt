@@ -10,7 +10,7 @@ public class Laka {
     public static Ul planszaUl[][];
     double a,b; // wspólrzędne Ula w tablicy planszaUl
 
-    public int getRozmiarLaki(){
+    public static int getRozmiarLaki(){
         return rozmiarLaki;
     }
     public void setRozmiarLaki(int rozmiarLaki){
