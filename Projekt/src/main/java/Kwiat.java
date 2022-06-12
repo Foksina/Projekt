@@ -1,13 +1,13 @@
 public class Kwiat {
-    private int [][] wspolrzedne;
+    private int [] wspolrzedne;
     protected byte iloscNektaru;
 
 
-    public int[][] getWspolrzedne() {
+    public int[] getWspolrzedne() {
         return wspolrzedne;
     }
 
-    public void setWspolrzedne(int[][] wspolrzedne) {
+    public void setWspolrzedne(int[] wspolrzedne) {
         this.wspolrzedne = wspolrzedne;
     }
 
