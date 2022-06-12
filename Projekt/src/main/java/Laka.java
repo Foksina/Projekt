@@ -52,6 +52,10 @@ public class Laka {
             if((planszaKwiatow[x][y] == null) && (x != (int)a) && (y != (int)b)){
                Lawenda object3 = new Lawenda();
                planszaKwiatow[x][y] = object3;
+                int [] pomocniczna = new int[2];
+                pomocniczna[0]=x;
+                pomocniczna[1]=y;
+                object3.setWspolrzedne(pomocniczna);
             }
             else{
                 i=i-1;
@@ -64,8 +68,13 @@ public class Laka {
             Random random2 = new Random();
             y = random2.nextInt(rozmiarLaki);
             if((planszaKwiatow[x][y] == null) && (x != (int)a) && (y != (int)b)){
-                Krokus object = new Krokus();
-                planszaKwiatow[x][y] = object;}
+                Krokus object6 = new Krokus();
+                planszaKwiatow[x][y] = object6;
+            int [] pomocniczna = new int[2];
+                pomocniczna[0]=x;
+                pomocniczna[1]=y;
+                object6.setWspolrzedne(pomocniczna);
+            }
             else{
                 i=i-1;}
         }
