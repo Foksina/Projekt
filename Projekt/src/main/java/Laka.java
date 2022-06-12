@@ -3,12 +3,15 @@ import java.util.LinkedList;
 import java.util.List;
 public class Laka {
     private static int rozmiarLaki = 5;
-    public List<Pszczola> spisPszczol = new LinkedList();
-    public List<Szerszen> spisSzerszeni = new LinkedList();
+    public static List<Pszczola> spisPszczol = new LinkedList();
+    public static List<Szerszen> spisSzerszeni = new LinkedList();
     public static Kwiat planszaKwiatow[][];
     public static Owad planszaOwadow[][];
     public static Ul planszaUl[][];
-    double a,b; // wspólrzędne Ula w tablicy planszaUl
+    public static double a;
+    public static double b; // wspólrzędne Ula w tablicy planszaUl
+    public static Ul object = new Ul();
+    public static Main object2 = new Main();
 
     public static int getRozmiarLaki(){
         return rozmiarLaki;
@@ -35,7 +38,6 @@ public class Laka {
             a = ((double)rozmiarLaki/2) - 0.5;
             b = ((double)rozmiarLaki/2) - 0.5;
         }
-        Ul object = new Ul();
         planszaUl[(int)a][(int)b]=object;
     }
 
@@ -48,8 +50,8 @@ public class Laka {
             Random random2 = new Random();
             y = random2.nextInt(rozmiarLaki);
             if((planszaKwiatow[x][y] == null) && (x != (int)a) && (y != (int)b)){
-               Lawenda object = new Lawenda();
-               planszaKwiatow[x][y] = object;
+               Lawenda object3 = new Lawenda();
+               planszaKwiatow[x][y] = object3;
             }
             else{
                 i=i-1;
@@ -71,19 +73,17 @@ public class Laka {
 
     private void ustawOwady() {
         //stworzenie listy obiektów typu pszczola
-        Main object = new Main();
-        int n = object.getLiczbaPszczol();
+        int n = object2.getLiczbaPszczol();
         for (int i = 0; i < n; i++) {
-                Pszczola object2 = new Pszczola();
-                spisPszczol.add(object2);
+                Pszczola object4 = new Pszczola();
+                spisPszczol.add(object4);
             }
 
         //stworzenie listy obiektów typu szerszen
-        Main object3 = new Main();
-        int m = object3.getLiczbaSzerszeni();
+        int m = object2.getLiczbaSzerszeni();
         for (int i = 0; i < m; i++) {
-                Szerszen object4 = new Szerszen();
-                spisSzerszeni.add(object4);
+                Szerszen object5 = new Szerszen();
+                spisSzerszeni.add(object5);
             }
 
         int x,y; //zmienne do losowania pozycji pszczol i szerszeni
@@ -95,6 +95,10 @@ public class Laka {
             y = random2.nextInt(rozmiarLaki);
             if((planszaOwadow[x][y] == null) && (x != (int)a) && (y != (int)b)){
                planszaOwadow[x][y] = spisPszczol.get(i);
+               int [] pomocniczna = new int[2];
+               pomocniczna[0]=x;
+               pomocniczna[1]=y;
+                (spisPszczol.get(i)).setWspolrzedne(pomocniczna);
             }
             else{
                 i=i-1;
@@ -109,6 +113,10 @@ public class Laka {
             y = random4.nextInt(rozmiarLaki);
             if((planszaOwadow[x][y] == null) && (x != (int)a) && (y != (int)b)){
                 planszaOwadow[x][y] = spisSzerszeni.get(i);
+                int [] pomocniczna = new int[2];
+                pomocniczna[0]=x;
+                pomocniczna[1]=y;
+                (spisSzerszeni.get(i)).setWspolrzedne(pomocniczna);
             }
             else{
                 i=i-1;
