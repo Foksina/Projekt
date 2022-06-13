@@ -1,8 +1,7 @@
 import java.util.Random;
 import java.util.LinkedList;
 public class Owad {
-    private int[] wspolrzedne;
-
+    private int[] wspolrzedne = new int[2];
     protected byte szybkoscPoruszania;
     public int pszczolWokol;
     public int szerszeniWokol;
@@ -13,13 +12,31 @@ public class Owad {
 
     protected void ruch (byte szybkoscPoruszania){
        //tworzenie tablicy możliwych ruchów
+        if(szybkoscPoruszania==1){
+            mozliwosci = new int[8][2];
+        }
+        else if(szybkoscPoruszania==2){
+            mozliwosci = new int[24][2];
+        }
+
         int k =0;
         for(int i =(-1 * szybkoscPoruszania); i<= szybkoscPoruszania; i++){
             for(int j =(-1 * szybkoscPoruszania); j<= szybkoscPoruszania; j++){
                 if(i!=0 || j!=0){
                     if((wspolrzedne[0]+i)>=0 && (wspolrzedne[1]+j)>=0){
-                        mozliwosci[k][0] = wspolrzedne[0]+i;
-                        mozliwosci[k][1] = wspolrzedne[1]+j;
+                        if((wspolrzedne[0]+i)<Laka.getRozmiarLaki()){
+                            mozliwosci[k][0] = wspolrzedne[0]+i;
+                        }
+                        else{
+                            mozliwosci[k][0] = wspolrzedne[0];
+                        }
+
+                        if((wspolrzedne[1]+j)<Laka.getRozmiarLaki()){
+                            mozliwosci[k][1] = wspolrzedne[1]+j;
+                        }
+                        else{
+                            mozliwosci[k][1] = wspolrzedne[1];
+                        }
                         k=k+1;
                     }
                 }
@@ -27,9 +44,14 @@ public class Owad {
         }
         // losowanie ruchu w możliwych ruchów na liście
         Random random = new Random();
-        int x = random.nextInt(k+1); //losowanie nr indeksu tablicy mozliwosci
-        wspolrzedne[0] = mozliwosci[x][0];  //ruch w poziomie
-        wspolrzedne[1] = mozliwosci[x][1];  //ruch w pionie
+        int x = random.nextInt(k); //losowanie nr indeksu tablicy mozliwosci
+        if(Laka.planszaOwadow[mozliwosci[x][0]][mozliwosci[x][1]]==null){
+            Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]]=null;
+            wspolrzedne[0] = mozliwosci[x][0];  //ruch w poziomie
+            wspolrzedne[1] = mozliwosci[x][1];  //ruch w pionie
+            Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]] = this;
+        }
+
     }
 
     public void sprawdzOtoczenie(){
