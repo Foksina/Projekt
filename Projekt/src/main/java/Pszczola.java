@@ -5,6 +5,30 @@ public class Pszczola extends Owad{
         this.szybkoscPoruszania = 1;
     }
 
+    public void kolejkaPszczoly(){
+        boolean p = sprawdzKwiat();
+        if(p==true){
+            nektarDoUla();
+            (Laka.object).liczNektar();
+        }
+        else{
+            ruch(szybkoscPoruszania);
+            sprawdzOtoczenie();
+            walka();
+        }
+    }
+
+    private boolean sprawdzKwiat() {
+        if(Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]] != null){
+            setZebranyNektar((Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]]).getIloscNektaru());
+            (Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]]).setIloscNektaru((byte)0);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public int getZebranyNektar() {
         return zebranyNektar;
     }
@@ -13,21 +37,14 @@ public class Pszczola extends Owad{
         this.zebranyNektar += nektar;
     }
 
-    public void sprawdzKwiat() {
-        if(Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]] != null){
-            setZebranyNektar((Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]]).getIloscNektaru());
-            (Laka.planszaKwiatow[getWspolrzedne()[0]][getWspolrzedne()[1]]).setIloscNektaru((byte)0);
-        }
-    }
-    
-    public void walka(){
+    private void walka(){
         if(szerszeniWokol >0){
             int x = (Laka.spisSzerszeni).indexOf(listaSzerszeniWokol.get(0));
             (Laka.spisSzerszeni.get(x)).walka();
         }
     }
 
-    public void Nektar(){
+    private void nektarDoUla(){
         if(zebranyNektar>0){
             int[] x;
             x = getWspolrzedne();
@@ -42,5 +59,4 @@ public class Pszczola extends Owad{
             setWspolrzedne(x);
         }
     }
-
 }
