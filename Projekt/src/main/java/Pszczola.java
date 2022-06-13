@@ -59,4 +59,5 @@ public class Pszczola extends Owad{
             setWspolrzedne(x);
         }
     }
+
 }
