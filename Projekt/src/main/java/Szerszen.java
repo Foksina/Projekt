@@ -3,6 +3,12 @@ public class Szerszen extends Owad{
     public Szerszen(){
         this.szybkoscPoruszania = 2;
     }
+
+    public void kolejkaSzerszenia(){
+            ruch(szybkoscPoruszania);
+            sprawdzOtoczenie();
+            walka();
+    }
     public void walka(){
         if(pszczolWokol == 1){
             (Laka.spisPszczol).remove(listaPszczolWokol.get(0));
