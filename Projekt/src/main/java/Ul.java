@@ -1,12 +1,11 @@
 import java.util.Random;
-
 public class Ul {
     private int sumaNektaru = 0;
 
     public void liczNektar(){
-        if(sumaNektaru >= 50){
+        if(sumaNektaru >= 5){
             tworzeniePszczoly();
-            sumaNektaru -= 50;
+            sumaNektaru -= 5;
         }
     }
 
@@ -20,7 +19,7 @@ public class Ul {
     private void tworzeniePszczoly(){
         Pszczola object = new Pszczola();
         (Laka.spisPszczol).add(object);
-
+        System.out.println("Powstała nowa pszczoła!");
         int x,y;
         boolean n = true;
         while(n == true){
