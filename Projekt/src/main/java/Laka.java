@@ -20,6 +20,12 @@ public class Laka {
         this.rozmiarLaki = rozmiarLaki;
     }
 
+    public void ustawieniaPoczatkowe(){
+        tworzenieLaki();
+        ustawUl();
+        wypelnijLake();
+        ustawOwady();
+    }
     private static void tworzenieLaki(){  //nadanie rozmiaru wszystkim tablicom oraz wypelnienie obiektami typu null
         for (int j = 0; j < rozmiarLaki; j++)
             for (int i = 0; i < rozmiarLaki; i++) {
@@ -70,7 +76,7 @@ public class Laka {
             if((planszaKwiatow[x][y] == null) && (x != (int)a) && (y != (int)b)){
                 Krokus object6 = new Krokus();
                 planszaKwiatow[x][y] = object6;
-            int [] pomocniczna = new int[2];
+                int [] pomocniczna = new int[2];
                 pomocniczna[0]=x;
                 pomocniczna[1]=y;
                 object6.setWspolrzedne(pomocniczna);
