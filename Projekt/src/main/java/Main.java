@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     private static int liczbaPszczol;
     private static int liczbaSzerszeni;
@@ -20,8 +19,7 @@ public class Main {
     public static void main(String[] args) {
         Laka object = new Laka();
 
-        boolean sprawdzam = false;
-        while(sprawdzam == false){
+        while(true){
             System.out.println("Podaj liczbę pszczół: ");
             Scanner odczyt = new Scanner(System.in);
             liczbaPszczol = odczyt.nextInt();
@@ -36,7 +34,7 @@ public class Main {
             }
         }
 
-        while(sprawdzam == false){
+        while(true){
             System.out.println("Podaj liczbę szerszeni: ");
             Scanner odczyt2 = new Scanner(System.in);
             liczbaSzerszeni = odczyt2.nextInt();
@@ -47,9 +45,30 @@ public class Main {
                 System.out.println("Liczba szerszeni jest zbyt duża!\nSzerszeni może być maksymalnie "+(int)((object.getRozmiarLaki()*object.getRozmiarLaki())-liczbaPszczol-1));
             }
             else {
-                sprawdzam = true;
+                break;
             }
         }
 
+        object.ustawieniaPoczatkowe();
+        while(liczbaPszczol>0 && liczbaSzerszeni>0){
+
+            for(int i=0; i<(object.spisPszczol).size();i++){
+                ((object.spisPszczol).get(i)).kolejkaPszczoly();
+            }
+
+            for(int j=0; j<(object.spisSzerszeni).size(); j++){
+                ((object.spisSzerszeni).get(j)).kolejkaSzerszenia();
+            }
+        }
+
+        if(liczbaPszczol==0){
+            System.out.println("Liczba pszczół wynosi 0. Szerszenie wygrały!");
+        }
+        else if(liczbaSzerszeni==0){
+            System.out.println("Liczba szerszeni wynosi 0. Pszczoły wygrały!");
+        }
+        else{
+            System.out.println("Symulacja zakończyła się niepowodzeniem!");
+        }
     }
 }
