@@ -11,7 +11,7 @@ public class Laka {
     public static double a;
     public static double b; // wspólrzędne Ula w tablicy planszaUl
     public static Ul object = new Ul();
-    public static Main object2 = new Main();
+    public static Dane object2 = new Dane();
 
     public static int getRozmiarLaki(){
         return rozmiarLaki;
@@ -27,6 +27,9 @@ public class Laka {
         ustawOwady();
     }
     private static void tworzenieLaki(){  //nadanie rozmiaru wszystkim tablicom oraz wypelnienie obiektami typu null
+        planszaKwiatow = new Kwiat[rozmiarLaki][rozmiarLaki];
+        planszaOwadow = new Owad[rozmiarLaki][rozmiarLaki];
+        planszaUl = new Ul[rozmiarLaki][rozmiarLaki];
         for (int j = 0; j < rozmiarLaki; j++)
             for (int i = 0; i < rozmiarLaki; i++) {
                 planszaKwiatow[i][j] = null;
@@ -108,7 +111,7 @@ public class Laka {
             x = random.nextInt(rozmiarLaki);
             Random random2 = new Random();
             y = random2.nextInt(rozmiarLaki);
-            if((planszaOwadow[x][y] == null) && (x != (int)a) && (y != (int)b)){
+            if((planszaOwadow[x][y] == null) && !(x == (int)a && y == (int)b)){
                planszaOwadow[x][y] = spisPszczol.get(i);
                int [] pomocniczna = new int[2];
                pomocniczna[0]=x;
@@ -126,7 +129,7 @@ public class Laka {
             x = random3.nextInt(rozmiarLaki);
             Random random4 = new Random();
             y = random4.nextInt(rozmiarLaki);
-            if((planszaOwadow[x][y] == null) && (x != (int)a) && (y != (int)b)){
+            if((planszaOwadow[x][y] == null) && !(x == (int)a && y == (int)b)){
                 planszaOwadow[x][y] = spisSzerszeni.get(i);
                 int [] pomocniczna = new int[2];
                 pomocniczna[0]=x;
