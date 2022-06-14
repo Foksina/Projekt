@@ -45,7 +45,7 @@ public class Owad {
         // losowanie ruchu w możliwych ruchów na liście
         Random random = new Random();
         int x = random.nextInt(k); //losowanie nr indeksu tablicy mozliwosci
-        if(Laka.planszaOwadow[mozliwosci[x][0]][mozliwosci[x][1]]==null){
+        if(Laka.planszaOwadow[mozliwosci[x][0]][mozliwosci[x][1]]==null && !(mozliwosci[x][0]== Laka.a && mozliwosci[x][1]== Laka.b)){
             Laka.planszaOwadow[wspolrzedne[0]][wspolrzedne[1]]=null;
             wspolrzedne[0] = mozliwosci[x][0];  //ruch w poziomie
             wspolrzedne[1] = mozliwosci[x][1];  //ruch w pionie
