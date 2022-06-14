@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 public class Main {
     public static int liczbaPszczol;
     public static int liczbaSzerszeni;
@@ -15,12 +17,14 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException  {
         Dane object2 = new Dane();
         object2.sprawdzDane();
+        PrintWriter zapis = new PrintWriter("symulacja.txt");
 
         liczbaPszczol = object2.getLiczbaPszczol();
         liczbaSzerszeni = object2.getLiczbaSzerszeni();
+        zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
 
         plansza = new Plansza();
         plansza.setVisible(true);
@@ -32,6 +36,7 @@ public class Main {
                 ((object2.object.spisPszczol).get(i)).kolejkaPszczoly();
                 liczbaPszczol = object2.getLiczbaPszczol();
                 liczbaSzerszeni = object2.getLiczbaSzerszeni();
+                zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
                 plansza.repaint();
                 wait(1000);
             }
@@ -40,6 +45,7 @@ public class Main {
                 ((object2.object.spisSzerszeni).get(j)).kolejkaSzerszenia();
                 liczbaPszczol = object2.getLiczbaPszczol();
                 liczbaSzerszeni = object2.getLiczbaSzerszeni();
+                zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
                 plansza.repaint();
                 //wait(1000);
             }
@@ -56,5 +62,6 @@ public class Main {
         else{
             System.out.println("Symulacja zakończyła się niepowodzeniem!");
         }
+        zapis.close();
     }
 }
