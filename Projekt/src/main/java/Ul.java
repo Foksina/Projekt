@@ -19,7 +19,7 @@ public class Ul {
     private void tworzeniePszczoly(){
         Pszczola object = new Pszczola();
         (Laka.spisPszczol).add(object);
-        System.out.println("Powstała nowa pszczoła!");
+        System.out.println("Powstala nowa pszczola!");
         int x,y;
         boolean n = true;
         while(n == true){
