@@ -12,7 +12,7 @@ public class Laka {
     public static double b; // wspólrzędne Ula w tablicy planszaUl
     public static Ul object = new Ul();
     public static Dane object2 = new Dane();
-
+    public static Main object3 = new Main();
     public static int getRozmiarLaki(){
         return rozmiarLaki;
     }
