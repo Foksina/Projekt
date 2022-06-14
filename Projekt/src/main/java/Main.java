@@ -24,7 +24,7 @@ public class Main {
 
         liczbaPszczol = object2.getLiczbaPszczol();
         liczbaSzerszeni = object2.getLiczbaSzerszeni();
-        zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
+        zapis.println("Liczba pszczol wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
 
         plansza = new Plansza();
         plansza.setVisible(true);
@@ -36,7 +36,7 @@ public class Main {
                 ((object2.object.spisPszczol).get(i)).kolejkaPszczoly();
                 liczbaPszczol = object2.getLiczbaPszczol();
                 liczbaSzerszeni = object2.getLiczbaSzerszeni();
-                zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
+                zapis.println("Liczba pszczol wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
                 plansza.repaint();
                 wait(1000);
             }
@@ -45,7 +45,7 @@ public class Main {
                 ((object2.object.spisSzerszeni).get(j)).kolejkaSzerszenia();
                 liczbaPszczol = object2.getLiczbaPszczol();
                 liczbaSzerszeni = object2.getLiczbaSzerszeni();
-                zapis.println("Liczba pszczół wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
+                zapis.println("Liczba pszczol wynosi: "+Integer.toString(liczbaPszczol)+ ". Liczba szerszeni wynosi: "+Integer.toString(liczbaSzerszeni));
                 plansza.repaint();
                 //wait(1000);
             }
@@ -54,13 +54,13 @@ public class Main {
         plansza.repaint();
 
         if(liczbaPszczol==0){
-            System.out.println("Liczba pszczół wynosi 0. Szerszenie wygrały!\nLiczba szerszeni wynosi "+ liczbaSzerszeni);
+            System.out.println("Liczba pszczol wynosi 0. Szerszenie wygraly!\nLiczba szerszeni wynosi "+ liczbaSzerszeni);
         }
         else if(liczbaSzerszeni==0){
-            System.out.println("Liczba szerszeni wynosi 0. Pszczoły wygrały!\nLiczba pszczół wynosi "+ liczbaPszczol);
+            System.out.println("Liczba szerszeni wynosi 0. Pszczoly wygraly!\nLiczba pszczol wynosi "+ liczbaPszczol);
         }
         else{
-            System.out.println("Symulacja zakończyła się niepowodzeniem!");
+            System.out.println("Symulacja zakonczyla sie niepowodzeniem!");
         }
         zapis.close();
     }
