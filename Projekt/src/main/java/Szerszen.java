@@ -6,6 +6,8 @@ public class Szerszen extends Owad{
 
     public void kolejkaSzerszenia(){
             ruch(szybkoscPoruszania);
+        ((Laka.object3).plansza).repaint();
+        (Laka.object3).wait(1000);
             sprawdzOtoczenie();
             walka();
     }
