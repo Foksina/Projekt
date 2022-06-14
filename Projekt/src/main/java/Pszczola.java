@@ -13,6 +13,10 @@ public class Pszczola extends Owad{
         }
         else{
             ruch(szybkoscPoruszania);
+
+            ((Laka.object3).plansza).repaint();
+            (Laka.object3).wait(1000);
+
             sprawdzOtoczenie();
             walka();
         }
@@ -52,12 +56,14 @@ public class Pszczola extends Owad{
             noweWspolrzedne[0] = (int)Laka.a;
             noweWspolrzedne[1] = (int)Laka.b;
             setWspolrzedne(noweWspolrzedne);
+            Laka.planszaOwadow[noweWspolrzedne[0]][noweWspolrzedne[1]] = this;
 
             (Laka.object).setSumaNektaru(zebranyNektar);
             zebranyNektar = 0;
 
             setWspolrzedne(x);
+            Laka.planszaOwadow[noweWspolrzedne[0]][noweWspolrzedne[1]] = null;
+            Laka.planszaOwadow[x[0]][x[1]] = this;
         }
     }
-
 }
