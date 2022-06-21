@@ -1,15 +1,41 @@
 import java.util.Random;
 import java.util.LinkedList;
+/**
+ *Klasa po której dziedziczy Pszczola oraz Szerszen. Definiująca obiektów po planszy w zależności od szybkości poruszania, sprawdzająca otoczenie obiektu na planszy, przechowująca zmienne obiektów jak np. wspolrzedne.
+ */
 public class Owad {
+    /**
+     *zmienna definiująca wspólrzędne obiektu na dwuwymiarowej tablicy
+     */
     private int[] wspolrzedne = new int[2];
+    /**
+     *zmienna definiująca szybkosc poruszania obiektu po planszy
+     */
     protected byte szybkoscPoruszania;
+    /**
+     *zmienna określająca ilośc pszczół wokół obiektu na planszy
+     */
     public int pszczolWokol;
+    /**
+     *zmienna określająca ilość szerszeni wokół obiektu na planszy
+     */
     public int szerszeniWokol;
+    /**
+     *zmienna przechowująca wszystkie możliwe ruchy (współrzędne po wykonaniu ruchu) dla konkretnego obiektu w ciągu jednego ruchu
+     */
     public int mozliwosci[][];
+    /**
+     *zmienna przechowująca obiekty typu Pszczola, które znajdują się wokół obiektu na planszy
+     */
     public LinkedList<Owad> listaPszczolWokol = new LinkedList<>();
+    /**
+     *zmienna przechowująca obiekty typu Szerszen, które znajdują się wokół obiektu na planszy
+     */
     public LinkedList<Owad> listaSzerszeniWokol = new LinkedList<>();
 
-
+    /**
+     *metoda okreslająca ruch obiektu w zależności od szybkosci poruszania
+     */
     protected void ruch (byte szybkoscPoruszania){
        //tworzenie tablicy możliwych ruchów
         if(szybkoscPoruszania==1){
@@ -54,6 +80,9 @@ public class Owad {
 
     }
 
+    /**
+     *metoda sprawdzająca otoczenie obiektu na planszy
+     */
     public void sprawdzOtoczenie(){
        pszczolWokol = 0;
        szerszeniWokol =0;
@@ -156,13 +185,21 @@ public class Owad {
         }
     }
 
+    /**
+     *metoda pozwalający pobrać wspolrzedne obiektu
+     */
     public int[] getWspolrzedne() {
         return wspolrzedne;
     }
-
+    /**
+    *metoda pozwalający nadać wspolrzedne obiektu
+    */
     public void setWspolrzedne(int[] wspolrzedne) {
         this.wspolrzedne = wspolrzedne;
     }
+    /**
+     *metoda pozwalający pobrać szybkosc obiektu
+     */
     public byte getSzybkoscPoruszania() {
         return szybkoscPoruszania;
     }
