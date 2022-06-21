@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ *Klasa odpowiedzialna za prawidłowe wyświetlanie symulacji okienkowej.
+ */
 public class Plansza extends JFrame{
 
     JPanel p;
@@ -7,16 +10,46 @@ public class Plansza extends JFrame{
     JLabel ileSzerszeni;
 
     Main object = new Main();
+    /**
+     *zmienna pobierająca liczbę pszczół z klasy Main
+     */
     int x = object.liczbaPszczol;
+    /**
+     *zmienna pobierająca liczbę szerszeni z klasy Main
+     */
     int y = object.liczbaSzerszeni;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorLawenda;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorKrokus;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorPszczola;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorSzerszen;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorLaki;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorKwiata;
+    /**
+     *zmienna określająca kolor w symulacji okienkowej
+     */
     protected static Color kolorUl;
 
+    /**
+     *metoda odpowiedzialna za ustawienie wymiarów, położenia okna symulacji oraz nadanie konkrentych kolorów do zmiennych
+     */
     public Plansza(){
         setSize(900,700);
         setLocation(300,100);
@@ -35,6 +68,9 @@ public class Plansza extends JFrame{
         add(p);
     }
 
+    /**
+     *metoda przysłaniająca, odpowiedzialna za wygląd wnętrza okna symulacji
+     */
     @Override
     public void paint(Graphics g) {
 
@@ -102,6 +138,7 @@ public class Plansza extends JFrame{
 
         g.setColor(kolorSzerszen);
         g.fillOval(775, 575, 50, 50);
+
 
         Font k = new Font("TimesRoman",Font.ITALIC, 18);
         g.setFont(k);
