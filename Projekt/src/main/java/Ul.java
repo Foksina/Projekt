@@ -1,21 +1,38 @@
 import java.util.Random;
+/**
+ *Klasa odpowiedzialna za przetrzymywanie i zliczanie nektaru oraz tworzenie obiektów typu pszczoła.
+ */
 public class Ul {
+    /**
+     *zmienna przechowująca ilość nektaru w obiekcie
+     */
     private int sumaNektaru = 0;
 
+    /**
+     *metoda sprawdzająca aktualny stan nektaru i wywołująca tworzenie pszczoły
+     */
     public void liczNektar(){
         if(sumaNektaru >= 5){
             tworzeniePszczoly();
             sumaNektaru -= 5;
         }
     }
-
+    /**
+     *metoda pozwalająca na pobranie aktualnej sumy nektaru w ulu
+     */
     public int getSumaNektaru() {
         return sumaNektaru;
     }
+    /**
+     *metoda pozwalająca na dodanie nektaru do ula
+     */
     public void setSumaNektaru(int nowyNektar) {
         sumaNektaru += nowyNektar;
     }
 
+    /**
+     *metoda odpowiedzialna za tworzenie obiektu typu pszczoła, dopisanie go do listy obiektów i umieszczenie go na planszy
+     */
     private void tworzeniePszczoly(){
         Pszczola object = new Pszczola();
         (Laka.spisPszczol).add(object);
