@@ -1,9 +1,16 @@
+/**
+ *Klasa dziedzicząca po klasie Owad. Odpowiedzialna za ustawienie szybkości szerszenia, określająca kolejność ruchów oraz symulację walki.
+ */
 public class Szerszen extends Owad{
-
+    /**
+     *metoda ustawiająca szybkosc poruszania szerszenia
+     */
     public Szerszen(){
         this.szybkoscPoruszania = 2;
     }
-
+    /**
+     *metoda definująca kolejność zachowań szerszenia w jego ruchu
+     */
     public void kolejkaSzerszenia(){
             ruch(szybkoscPoruszania);
         ((Laka.object3).plansza).repaint();
@@ -11,6 +18,9 @@ public class Szerszen extends Owad{
             sprawdzOtoczenie();
             walka();
     }
+    /**
+     *metoda definiująca warunki otoczenia do odbycia się walki oraz wywołująca walkę - usunięcie konkretnego obiektu w zależności od warunków
+     */
     public void walka(){
         if(pszczolWokol == 1){
             Owad pszcz = listaPszczolWokol.get(0);
